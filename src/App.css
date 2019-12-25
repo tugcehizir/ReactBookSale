@@ -1,0 +1,31 @@
+.App {
+  text-align: center;
+}
+
+img {
+  margin-top: 25px;
+}
+
+p {
+  width: 250px;
+  font-size: 15px;
+  font-weight: bold;
+  margin: 5px;
+  color: black;
+}
+
+div {
+  display: inline-block;
+}
+
+.content {
+  width: 260px;
+  height: 350px;
+}
+
+.div {
+  margin-top: 15px;
+}
+.sale {
+  color:red;
+}
