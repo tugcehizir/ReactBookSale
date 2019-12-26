@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react'
+import React, { useState } from 'react'
 import { useDispatch } from 'react-redux';
 
 const SearchBar = () => {
@@ -21,11 +21,10 @@ const SearchBar = () => {
         setCurrentValue(event.target.value);
     };
     return (
-        <Fragment>
+        <div>
             <input onChange={_handleChange}></input>
             <button onClick={_handleClick}>Search</button>
-
-        </Fragment>
+        </div>
 
     )
 

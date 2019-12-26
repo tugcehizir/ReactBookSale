@@ -1,13 +1,17 @@
-import React from 'react'
+import React from 'react';
 import { connect } from 'react-redux';
+import { withRouter, useHistory } from 'react-router-dom';
 
 const BookList = ({ booksThis }) => {
-
+    const history = useHistory();
+    const _onClick = id => {
+        history.push({ pathname: '/detail', state: { bookId: id } });
+    };
     return (
-        <div className="div">
+        <div>
             {booksThis.map(item => (
-                <div key={item.id} className="content">
-                    <img src={item.volumeInfo.imageLinks.smallThumbnail} width="130px" height="200px"></img>
+                <div key={item.id} className="content" onClick={() => _onClick(item.id)}>
+                    <img src={item.volumeInfo.imageLinks.smallThumbnail} width="130px" height="200px" alt="foto"></img>
                     <p>Kitap ismi:{item.volumeInfo.title}</p>
                     <p>Yazar ismi:{item.volumeInfo.authors[0]}</p>
                     <p>Kategori: {item.volumeInfo.categories}</p>
@@ -25,4 +29,4 @@ const mapStateToProps = (state) => {
 }
 
 
-export default connect(mapStateToProps)(BookList);
+export default withRouter(connect(mapStateToProps)(BookList));

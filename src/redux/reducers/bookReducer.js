@@ -1,16 +1,20 @@
 
 const initialState = {
     books: [],
-    loading: false,
-    request: false
+    request: false,
+    favoriteList: [{ title: "", img: "" }]
 };
 
 export default (state = initialState, action) => {
     switch (action.type) {
         case 'book/request':
-            return { ...state, loading: true };
+            return { ...state };
         case 'book/success':
-            return { ...state, books: action.data, loading: false };
+            return { ...state, books: action.data };
+        case 'fav':
+            const { favoriteList } = state;
+            favoriteList.push({ title: action.data.title, img: action.data.imageLinks.smallThumbnail })
+            return { ...state, favoriteList };
         default:
             return state;
     }
